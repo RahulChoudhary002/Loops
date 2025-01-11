@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Methods, Loops, and Switches</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #548480;
+            color: #523b3b;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #0056b3;
+        }
+
+        .output {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #834545;
+            background: #7d5050;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Methods, Loops, and Switches in JavaScript</h1>
+    <button onclick="runProject()">Generate Output</button>
+    <div id="output" class="output"></div>
+
+    <script>
+        function runProject() {
+            let outputDiv = document.getElementById("output");
+            outputDiv.innerHTML = "";
+            let currentDate = new Date();
+            outputDiv.innerHTML += `<p><strong>Current Date:</strong> ${currentDate}</p>`;
+
+
+            outputDiv.innerHTML += "<p><strong>Random Numbers:</strong></p><ul>";
+            for (let i = 0; i < 5; i++) {
+                let randomNum = Math.random() * 100;
+                let roundedNum = Math.round(randomNum);
+                outputDiv.innerHTML += `<li>${roundedNum}</li>`;
+            }
+            outputDiv.innerHTML += "</ul>";
+
+            let randomNumForSwitch = Math.floor(Math.random() * 10);
+            let category;
+
+            switch (true) {
+                case randomNumForSwitch < 3:
+                    category = "Low (0-2)";
+                    break;
+                case randomNumForSwitch < 7:
+                    category = "Medium (3-6)";
+                    break;
+                default:
+                    category = "High (7-9)";
+            }
+
+            outputDiv.innerHTML += `<p><strong>Random Number for Switch:</strong> ${randomNumForSwitch} (${category})</p>`;
+        }
+    </script>
+</body>
+
+</html>
